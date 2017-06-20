@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 5.2 - Front End Web Development Fundamentals</title>
+	<style>
+	
+body 
+{
+    background-color: linen;
+}
+h1 
+{
+    color: maroon;
+} 
+
+</style>
+</head>
+<body>
+	<h1>Tutorial to check if a character is a vowel or a consonant!</h1><br>
+	<!--A form has been created that will accept the character and on click of the button would return the result (vowel/consonant)-->
+	 <form name=form1>
+        Enter a character:
+       <input type="text" name="txtRadius" maxlength="1" size="1"/>
+       <br><br>
+       <input type="button" value="Submit" onClick='CheckForVowelConsonant();'>  
+    </form>
+<script type="text/javascript">
+	function CheckForVowelConsonant()
+	{
+		//variable holding special characters.
+var spChars= /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+var txt =document.form1.txtRadius.value;
+console.log("--- textbox value and it's type ---");
+console.log(txt);
+console.log(typeof txt);
+//Checks for empty string
+if (txt == "") 
+{
+	alert("please enter a character!");
+}
+//Checks if a string is a number
+else if (!isNaN(txt)) 
+{
+	console.log("--- textbox value is a number ---");
+	console.log(isNaN(txt));
+alert("please enter only a character and not a number!");
+}
+//checks if the value is a special character
+else if (txt!="" && spChars.test(txt)) 
+{
+	console.log("--- textbox value is a special character ---");
+console.log(spChars.test(txt));
+alert("please enter only a character and not a special character!");
+}
+//Determines whether the character is a vowel or a consonant.
+else
+{
+	console.log("--- checking if the text value is a consonant or a vowel---");
+	if (txt == 'a' ||
+          txt == 'e' ||
+          txt == 'i' ||
+          txt == 'o' ||
+          txt == 'u') {
+
+          alert("Your letter is a vowel");
+
+        } else {
+
+          alert("Your letter is a consonant");
+        }
+}
+	}
+</script>
+</body>
+</html>
